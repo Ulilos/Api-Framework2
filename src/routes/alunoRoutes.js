@@ -35,7 +35,7 @@ const router = express.Router()
  * /aluno:
  *  get:
  *      summary: Retorna todos os alunos
- *      tags: [Alunos]
+ *      tags: [Aluno]
  *      responses:
  *          200:
  *              description: Lista de alunos
@@ -53,7 +53,7 @@ router.get('/', authenticationToken, alunoController.getAll.bind(alunoController
  * /aluno:
  *  post:
  *      summary: Cadastros de aluno
- *      tags: [Alunos]
+ *      tags: [Aluno]
  *      requestBody:
  *          required: true
  *          content:
@@ -80,7 +80,7 @@ router.post('/', authenticationToken, alunoController.create.bind(alunoControlle
  * /aluno/{id}:
  *  put:
  *      summary: Atualização de aluno
- *      tags: [Alunos]
+ *      tags: [Aluno]
  *      parameters:
  *          - in: path
  *            name: id
