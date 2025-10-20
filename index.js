@@ -21,7 +21,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 
 sequelize.sync({force: false}).then(() => {
     app.listen(port, () => {
-        console.log('servidor de API rodando')
+        console.log('servidor de API rodando http://localhost:3000/api-docs')
     })
 }).catch(err =>{
     console.log('erro no sync do banco: ', err)
