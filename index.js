@@ -3,6 +3,7 @@ const swaggerUi = require("swagger-ui-express")
 const swaggerJsdoc = require("swagger-jsdoc")
 const swaggerOptions = require("./extend/swagger")
 const sequelize = require('./src/config/database')
+const cors = require("cors")
 
 const authRoutes = require('./src/routes/authRoutes')
 const alunoRoutes = require('./src/routes/alunoRoutes')
@@ -13,6 +14,7 @@ const port = 3000
 const specs = swaggerJsdoc(swaggerOptions)
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/auth', authRoutes)
 app.use('/aluno',alunoRoutes)

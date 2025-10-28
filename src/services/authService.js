@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const usuarioRepo = require('../repositories/usuarioRepo')
+const userRepository = require('../repositories/usuarioRepo')
 
 const JWT_SECRET = 'PenaltiFoiPIX'
 
@@ -14,19 +14,18 @@ class AuthService {
         }
 
         const senhaHash = await bcrypt.hash(senha, 10)
-        const novoUsuario = await usuarioRepo.create({
+        const novoUsuario = await userRepository.create({
             nome,
             email,
             senha: senhaHash
         })
 
-        return { message: 'Usuario Cadastrado' }
     }
 
     async login(loginData) {
         const { email, senha } = loginData
 
-        const usuario = await usuarioRepo.findByEmail(email)
+        const usuario = await userRepository.findByEmail(email)
         if (!usuario) {
             throw new Error('Credenciais Invalidas')
         }
